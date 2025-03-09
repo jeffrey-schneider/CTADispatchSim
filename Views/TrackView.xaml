@@ -1,0 +1,28 @@
+﻿<!-- TrackView.xaml -->
+<UserControl x:Class="CTADispatchSim.Views.TrackView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:CTADispatchSim.Converters"
+             xmlns:views="clr-namespace:CTADispatchSim.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="100" d:DesignWidth="400">
+    <UserControl.Resources>
+        <converters:BoolToStatusConverter x:Key="BoolToStatusConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border CornerRadius="5" BorderBrush="Black" BorderThickness="2" Background="LightSteelBlue" Padding="10">
+            <StackPanel>
+                <TextBlock Text="Track Section" FontSize="14" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TextBlock Text="Start Station: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding StartStation}" Margin="10,0,0,5"/>
+                <TextBlock Text="End Station: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding EndStation}" Margin="10,0,0,5"/>
+                <TextBlock Text="Status: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding IsAvailable, Converter={StaticResource BoolToStatusConverter}}" Margin="10,0,0,5"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
