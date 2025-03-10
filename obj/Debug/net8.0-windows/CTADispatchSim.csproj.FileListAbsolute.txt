@@ -1,8 +1,3 @@
-C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.exe
-C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.deps.json
-C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.runtimeconfig.json
-C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.dll
-C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.pdb
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\Views\TrainView.baml
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\Views\TrackView.g.cs
@@ -11,6 +6,11 @@ C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim_MarkupCompile.cache
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim_MarkupCompile.lref
+C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.exe
+C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.deps.json
+C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.runtimeconfig.json
+C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.dll
+C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\bin\Debug\net8.0-windows\CTADispatchSim.pdb
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\Views\TrackView.baml
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim.g.resources
@@ -18,6 +18,7 @@ C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim.AssemblyInfoInputs.cache
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim.AssemblyInfo.cs
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim.csproj.CoreCompileInputs.cache
+C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim.sourcelink.json
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim.dll
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\refint\CTADispatchSim.dll
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\obj\Debug\net8.0-windows\CTADispatchSim.pdb

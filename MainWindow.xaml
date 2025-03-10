@@ -4,6 +4,15 @@
         xmlns:views="clr-namespace:CTADispatchSim.Views"
         Title="CTA Dispatch Sim" Height="450" Width="800">
     <Grid>
-        <views:TrackView DataContext="{Binding TestTrackBlock}" />
+        <StackPanel>
+            <TextBlock Text="Train List" FontSize="18" FontWeight="Bold" Margin="10"/>
+            <ItemsControl ItemsSource="{Binding Trains}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:TrainView DataContext="{Binding}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
     </Grid>
 </Window>
