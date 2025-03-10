@@ -14,6 +14,8 @@
                 <TextBlock Text="{Binding Name}" Margin="10,0,0,5"/>
                 <TextBlock Text="Current Station: " FontWeight="Bold"/>
                 <TextBlock Text="{Binding CurrentStation}" Margin="10,0,0,5"/>
+                <TextBlock Text="Direction: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding Direction}" Margin="10,0,0,5"/>
             </StackPanel>
         </Border>
     </Grid>

@@ -6,7 +6,14 @@ using System.Windows.Threading;
 
 namespace CTADispatchSim
 {
-    //jeff was here.
+
+    public enum TrackDirection
+    {
+        Inbound,
+        Outbound
+    }
+
+    
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public ObservableCollection<Train> Trains { get; set; } = new ObservableCollection<Train>();
@@ -52,48 +59,56 @@ namespace CTADispatchSim
                 Debug.WriteLine("🚀 Train movement timer started manually from OnStartup!");            
             }
         }
-        private void MoveTrains(object? sender, EventArgs e)
+        private void MoveTrains(object sender, EventArgs e)
         {
-            Debug.WriteLine("Move trains called!");
             foreach (var train in Trains)
             {
                 Debug.WriteLine($"🚆 {train.Name} is at {train.CurrentStation}");
-                //find the current track where the train is located
-                var currentTrack = TrackBlocks.FirstOrDefault(t => t.StartStation == train.CurrentStation);
+
+                // Find the correct track based on the train's direction
+                var currentTrack = TrackBlocks.FirstOrDefault(t =>
+                    t.StartStation == train.CurrentStation &&
+                    (train.Direction == TrackDirection.Inbound ? t.Direction == TrackDirection.Inbound : t.Direction == TrackDirection.Outbound)
+                );
 
                 if (currentTrack != null)
                 {
                     train.CurrentStation = currentTrack.EndStation;
                     Debug.WriteLine($"➡ {train.Name} moved to {train.CurrentStation}");
-
                 }
                 else
                 {
-                    //train reached last station, loop it back
-                    train.CurrentStation = TrackBlocks.First().StartStation;
-                    Debug.WriteLine($"🔄 {train.Name} looped back to {train.CurrentStation}");
+                    // Train reached end of the route, loop it back
+                    var resetTrack = TrackBlocks.FirstOrDefault(t => t.Direction == (train.Direction == TrackDirection.Inbound ? TrackDirection.Outbound : TrackDirection.Inbound));
+                    if (resetTrack != null)
+                    {
+                        train.CurrentStation = resetTrack.StartStation;
+                        train.Direction = train.Direction == TrackDirection.Inbound ? TrackDirection.Outbound : TrackDirection.Inbound;
+                        Debug.WriteLine($"🔄 {train.Name} reversed direction and is now at {train.CurrentStation}");
+                    }
                 }
-
-                OnPropertyChanged(nameof(Trains));
             }
         }
 
+
         private void LoadTracks()
         {
-            // Placeholder track data
-            TrackBlocks.Add(new TrackBlock("Howard", "Oakton", true));
-            TrackBlocks.Add(new TrackBlock("Oakton", "Dempster", true));
-            TrackBlocks.Add(new TrackBlock("Dempster", "Skokie", true));
+            // Example Yellow Line (Skokie Swift) with Inbound and Outbound tracks
+            TrackBlocks.Add(new TrackBlock("Dempster-Skokie", "Oakton-Skokie", TrackDirection.Inbound, true));
+            TrackBlocks.Add(new TrackBlock("Oakton-Skokie", "Howard", TrackDirection.Inbound, true));
 
-            TestTrackBlock = new TrackBlock("Howard", "Oakton", true); // Now triggers UI update
+            TrackBlocks.Add(new TrackBlock("Howard", "Oakton-Skokie", TrackDirection.Outbound, true));
+            TrackBlocks.Add(new TrackBlock("Oakton-Skokie", "Dempster-Skokie", TrackDirection.Outbound, true));
         }
 
         private void LoadTrains()
         {
-            Trains.Add(new Train("Train 101", "Howard"));
-            Trains.Add(new Train("Train 202", "Dempster"));
-            Trains.Add(new Train("Train 303", "Skokie"));
+            Trains.Add(new Train("Train 101", "Dempster-Skokie", TrackDirection.Inbound));
+            Trains.Add(new Train("Train 202", "Howard", TrackDirection.Outbound));
+            Trains.Add(new Train("Train 303", "Oakton-Skokie", TrackDirection.Inbound));
+            Trains.Add(new Train("Train 404", "Oakton-Skokie", TrackDirection.Outbound));
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -102,9 +117,9 @@ namespace CTADispatchSim
         }
     }
 
-   
 
-public class Train : INotifyPropertyChanged
+
+    public class Train : INotifyPropertyChanged
     {
         public string Name { get; set; }
 
@@ -122,10 +137,25 @@ public class Train : INotifyPropertyChanged
             }
         }
 
-        public Train(string name, string station)
+        private TrackDirection _direction;
+        public TrackDirection Direction
+        {
+            get => _direction;
+            set
+            {
+                if (_direction != value)
+                {
+                    _direction = value;
+                    OnPropertyChanged(nameof(Direction));
+                }
+            }
+        }
+
+        public Train(string name, string station, TrackDirection direction)
         {
             Name = name;
             _currentStation = station;
+            _direction = direction;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -135,11 +165,11 @@ public class Train : INotifyPropertyChanged
         }
     }
 
-
     public class TrackBlock : INotifyPropertyChanged
     {
         public string StartStation { get; set; }
         public string EndStation { get; set; }
+        public TrackDirection Direction { get; set; }
 
         private bool _isAvailable;
         public bool IsAvailable
@@ -155,10 +185,11 @@ public class Train : INotifyPropertyChanged
             }
         }
 
-        public TrackBlock(string start, string end, bool available)
+        public TrackBlock(string start, string end, TrackDirection direction, bool available)
         {
             StartStation = start;
             EndStation = end;
+            Direction = direction;
             _isAvailable = available;
         }
 
