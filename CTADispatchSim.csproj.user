@@ -10,7 +10,7 @@
     <Compile Update="Views\TrackView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\TrainView.xaml.cs">
+    <Compile Update="Views\TrainDisplay.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,7 +21,7 @@
     <Page Update="Views\TrackView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\TrainView.xaml">
+    <Page Update="Views\TrainDisplay.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

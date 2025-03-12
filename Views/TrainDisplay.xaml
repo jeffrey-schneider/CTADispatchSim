@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="CTADispatchSim.Views.TrainDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+    <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="LightGray" Padding="10" Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
+                <TextBlock Text="Train Name:" FontWeight="Bold"/>
+                <TextBlock Text="Current Station:" FontWeight="Bold"/>
+                <TextBlock Text="Next Station:" FontWeight="Bold"/>
+               
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10">
+                <TextBlock Text="{Binding Name}" />
+                <TextBlock Text="{Binding CurrentStation}" />
+                <TextBlock Text="{Binding NextStation}" />
+                
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

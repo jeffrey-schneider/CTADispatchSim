@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\JeffreySchneider\Documents\Personal\Games\CTADispatchSim\App.xaml
-3547111699
+3200160729
 
-14-517526597
+161776224147
 198-1431420039
-MainWindow.xaml;Views\TrackView.xaml;Views\TrainView.xaml;
+MainWindow.xaml;Views\TrackView.xaml;Views\TrainDisplay.xaml;
 
-False
+True
 
