@@ -3,27 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d">
-    <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Background="LightGray" Padding="10" Margin="5">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+             mc:Ignorable="d"
+             d:DesignHeight="100" d:DesignWidth="250">
 
-            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
-                <TextBlock Text="Train Name:" FontWeight="Bold"/>
-                <TextBlock Text="Current Station:" FontWeight="Bold"/>
-                <TextBlock Text="Next Station:" FontWeight="Bold"/>
-               
+    <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2"
+            Background="{Binding RouteColor}" Padding="10">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold"
+                       Foreground="{Binding RouteTextColor}" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Current: " FontWeight="Bold" Foreground="{Binding RouteTextColor}"/>
+                <TextBlock Text="{Binding CurrentStation}" Foreground="{Binding RouteTextColor}"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10">
-                <TextBlock Text="{Binding Name}" />
-                <TextBlock Text="{Binding CurrentStation}" />
-                <TextBlock Text="{Binding NextStation}" />
-                
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Next: " FontWeight="Bold" Foreground="{Binding RouteTextColor}"/>
+                <TextBlock Text="{Binding NextStation}" Foreground="{Binding RouteTextColor}"/>
             </StackPanel>
-        </Grid>
+
+            <Button Content="Restart Train" FontSize="12" Padding="5"
+                    HorizontalAlignment="Center" Margin="5"
+                    Command="{Binding RestartCommand}"/>
+        </StackPanel>
     </Border>
+
 </UserControl>

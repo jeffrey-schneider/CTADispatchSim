@@ -1,12 +1,21 @@
-﻿using System;
+﻿using CTADispatchSim.Helpers;
+using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Windows.Input;
+using System.Windows.Media; // Needed for color binding in WPF
 
 namespace CTADispatchSim.Models
 {
     public class Train : INotifyPropertyChanged
     {
         public string Name { get; set; }
+        public string Route { get; set; } // Train's route name
+        public SolidColorBrush RouteColor { get; set; }
+        public SolidColorBrush RouteTextColor { get; set; }
+
         private string _currentStation;
         public string CurrentStation
         {
@@ -49,71 +58,74 @@ namespace CTADispatchSim.Models
             }
         }
 
-        private Stack<string> StationStack { get; set; }
+        private Stack<string> StationStack { get; set; }      
+        
 
-        public Train(string name, List<string> stations)
+        private List<string> OriginalStations; // Backup of original station list
+
+        public ICommand RestartCommand { get; private set; }
+
+        public Train(string name, string route, List<string> stations, string routeColor, string routeTextColor)
         {
             Name = name;
+            Route = route;
+            RouteColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString(routeColor));
+            RouteTextColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString(routeTextColor));
+            OriginalStations = new List<string>(stations); // 🔄 Store original station list
             LoadStations(stations);
+            RestartCommand = new RelayCommand(RestartTrain);
+            //RestartCommand = new RelayCommand(param => RestartTrain(param ?? "Manual Restart"));
+
         }
 
+        
+        
         private void LoadStations(List<string> stations)
         {
-            if (stations == null || stations.Count == 0)
-            {
-                StationStack = new Stack<string>();
-                CurrentStation = "No Stations Available";
-                NextStation = "End of Line";
-                return;
-            }
 
-            StationStack = new Stack<string>(stations);
+            if (stations == null || stations.Count == 0)
+                throw new ArgumentException("Station list cannot be null or empty");
+            
+                StationStack = new Stack<string>(stations);
+
             CurrentStation = StationStack.Pop();
             NextStation = StationStack.Count > 0 ? StationStack.Peek() : "End of Line";
+            PreviousStation = "None";
         }
 
+        // 🚀 Do NOT reverse, since Yellow Line already includes both directions!
 
-        public void MoveToNextStation()
+
+
+
+
+   
+
+
+        public async void MoveToNextStation()
         {
+            Debug.WriteLine($"📍 {Name} Current: {CurrentStation}, Next: {NextStation}");
+
             if (StationStack.Count > 0)
             {
                 PreviousStation = CurrentStation;
                 CurrentStation = StationStack.Pop();
-                NextStation = StationStack.Count > 0 ? StationStack.Peek() : "End of Line";
+                NextStation = StationStack.Count > 0 ? StationStack.Peek() : null; // ❌ Fix: Remove "End of Line"
 
-                // ✅ Handle Looping Lines Specifically
-                if (IsLoopStation(CurrentStation) && StationStack.Count == 0)
-                {
-                    ReloadLoopStations();
-                }
+                Debug.WriteLine($"🚆 {Name} moved to {CurrentStation}. Next stop: {NextStation ?? "End of Route"}");
             }
-            else
+
+            if (StationStack.Count == 0) // 🛑 Reached the end
             {
-                ReverseRoute();
+                Debug.WriteLine($"🛑 {Name} reached {CurrentStation}. Restarting in 10 seconds...");
+                await Task.Delay(TimeSpan.FromSeconds(10));
+                RestartTrain();
             }
         }
 
-        private void ReloadLoopStations()
-        {
-            var loopStations = new List<string>
-            {
-                "Clark/Lake","State/Lake","Washington/Wabash","Adams/Wabash",
-                "Harold Washington Library", "LaSalle/Van Buren", "Quincy", "Washington/Wells"
-            };
 
-            StationStack = new Stack<string>(loopStations);
-            NextStation = StationStack.Peek();
-        }
 
-        // ✅ Check if a station is part of The Loop
-        private bool IsLoopStation(string station)
-        {
-            return new List<string>  {
-            "Clark/Lake", "State/Lake", "Washington/Wabash", "Adams/Wabash",
-            "Harold Washington Library", "LaSalle/Van Buren", "Quincy", "Washington/Wells"
-            }.Contains(station);
-        }
-        
+
 
 
         private void ReverseRoute()
@@ -123,6 +135,32 @@ namespace CTADispatchSim.Models
             reversedList.Reverse();
             LoadStations(reversedList);
         }
+
+        public void RestartTrain()
+        {
+            Debug.WriteLine($"🟢 {Name} is restarting its route.");
+
+            if (OriginalStations == null || OriginalStations.Count == 0)
+            {
+                Debug.WriteLine($"⚠ ERROR: {Name} has no original stations stored!");
+                return;
+            }
+
+            LoadStations(new List<string>(OriginalStations));
+
+            // ✅ Explicitly reset to the first station
+            CurrentStation = OriginalStations[0];
+            //NextStation = OriginalStations.Count > 1 ? OriginalStations[1] : null;
+            
+
+            OnPropertyChanged(nameof(CurrentStation));
+            OnPropertyChanged(nameof(NextStation));
+            OnPropertyChanged(nameof(PreviousStation));
+
+            Debug.WriteLine($"🔄 {Name} Restarted! First station: {CurrentStation}, Next: {NextStation}");
+        }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
