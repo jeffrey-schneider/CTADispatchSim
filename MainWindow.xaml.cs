@@ -53,10 +53,10 @@ namespace CTADispatchSim
         private void LoadTrains()
         {
             Trains.Add(new Train("Yellow Line Train 101", "Yellow", CTAStations.LineStations["Yellow"], "#FFD700", "#000000"));
-            //Trains.Add(new Train("Red Line Train 201", "Red", CTAStations.LineStations["Red"], "#FF0000", "#FFFFFF"));
-            //Trains.Add(new Train("Blue Line Train 301", "Blue", CTAStations.LineStations["Blue"], "#0000FF", "#FFFFFF"));
-            //Trains.Add(new Train("Green Line Train 901", "Green", CTAStations.LineStations["Green"], "#008000", "#FFFFFF"));
-            //Trains.Add(new Train("Pink Line Train 902", "Pink", CTAStations.LineStations["Pink"], "#FFC0CB", "#000000"));
+            Trains.Add(new Train("Red Line Train 201", "Red", CTAStations.LineStations["Red"], "#FF0000", "#FFFFFF"));
+            Trains.Add(new Train("Blue Line Train 301", "Blue", CTAStations.LineStations["Blue"], "#0000FF", "#FFFFFF"));
+            Trains.Add(new Train("Green Line Train 901", "Green", CTAStations.LineStations["Green"], "#008000", "#FFFFFF"));
+            Trains.Add(new Train("Pink Line Train 902", "Pink", CTAStations.LineStations["Pink"], "#FFC0CB", "#000000"));
             //Trains.Add(new Train("Orange Line Train 903", "Orange", CTAStations.LineStations["Orange"], "#FFA500", "#000000"));
             //Trains.Add(new Train("Brown Line Train 904", "Brown", CTAStations.LineStations["Brown"], "#8B4513", "#FFFFFF"));
             //Trains.Add(new Train("Purple Line Train 905", "Purple", CTAStations.LineStations["Purple"], "#800080", "#FFFFFF"));
@@ -66,14 +66,24 @@ namespace CTADispatchSim
 
         private void MoveTrains(object sender, EventArgs e)
         {
-            Debug.WriteLine("🚆 MoveTrains() Tick");
-
             foreach (var train in Trains)
             {
-                Debug.WriteLine($"🔄 Moving train: {train.Name}");
+                if (train.CurrentStation == null)
+                    continue;
+
+                string previousStation = train.CurrentStation.StationName;
                 train.MoveToNextStation();
+
+                Debug.WriteLine($"🚆 {train.Name} moved from {previousStation} to {train.CurrentStation.StationName}");
+
+                // 🚨 Handle "Change Tracks" stations
+                if (train.CurrentStation.StationName.StartsWith("Change Tracks"))
+                {
+                    Debug.WriteLine($"🔄 {train.Name} reached {train.CurrentStation.StationName} and is preparing to continue.");
+                }
             }
         }
+
 
         private void StartClock()
         {
