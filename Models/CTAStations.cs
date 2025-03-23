@@ -68,67 +68,243 @@ namespace CTADispatchSim.Models
                 ("Change Tracks (O'Hare)", 0.1) // ✅ Track switch before restarting route
             },
 
-            ["Green"] = new List<(string Station, double Distance)>
-{
-    // 🚆 Green Line - Harlem/Lake to Ashland/63rd & Cottage Grove Branch
-    ("Harlem/Lake", 0.8), ("Oak Park", 0.7), ("Ridgeland", 0.6), ("Austin", 0.7),
-    ("Central", 0.8), ("Laramie", 0.7), ("Cicero", 0.9), ("Pulaski", 1.1),
-    ("Conservatory-Central Park", 0.8), ("Kedzie", 0.9), ("California", 0.7),
-    ("Damen", 0.6), ("Ashland", 1.0), ("Morgan", 0.7), ("Clinton", 0.8),
-    ("Clark/Lake", 0.6), ("State/Lake", 0.5), ("Washington/Wabash", 0.4),
-    ("Adams/Wabash", 0.6), ("Roosevelt", 1.2), 
 
-    // 🚆 Branch to Ashland/63rd
-    ("Halsted", 1.0), ("Garfield", 1.5), ("King Drive", 1.0), ("Cottage Grove", 0.7),
+            ["Green"] = new List<(string Station, double Distance)>{
+                 // West Branch (Outbound toward The Loop)
+                 ("Harlem/Lake", 0.0), ("Oak Park", 1.0),
+                 ("Ridgeland", 1.0), ("Austin", 1.0),
+                 ("Central", 1.0), ("Laramie", 1.0),
+                 ("Cicero", 1.0), ("Pulaski", 1.0),
+                 ("Conservatory/Central Park Drive", 1.0), ("Kedzie", 1.0),
+                 ("California", 1.0), ("Damen", 1.5),
+                 ("Ashland", 1.0), ("Morgan", 1.0),
+                 ("Clinton", 1.0),
 
-    ("Change Tracks (Cottage Grove)", 0.1), // ✅ Track switch before return
+                 // The Loop Section (Counterclockwise)
+                 ("Clark/Lake", 1.0), ("State/Lake", 1.0),
+                 ("Washington/​Wabash", 1.0),
+                 ("Adams/Wabash", 1.0),
 
-    // 🚆 Corrected Return Path from Cottage Grove to Roosevelt
-    ("Cottage Grove", 0.7), ("King Drive", 1.0), ("Garfield", 1.5), ("Halsted", 1.0),
-    ("Ashland/63rd", 1.0),
+                 // Southbound Exit from The Loop
+                 ("Roosevelt", 1.0), ("Cermak-McCormick Place", 1.0),
+                 ("35th/Bronzeville/IIT", 1.0),
+                 ("Indiana", 1.0), ("43rd", 1.0),
+                 ("47th", 1.0), ("51st", 1.0), ("Garfield", 1.0),
 
-    ("Change Tracks (Ashland/63rd)", 0.1), // ✅ Track switch before return trip
+                 // Split Branch 2: Ashland/63rd
+                 ("Halsted", 1.0), ("Ashland/63rd", 1.0),
 
-    ("Ashland/63rd", 1.0), ("Halsted", 1.0), ("Garfield", 1.5), ("51st", 0.8),
-    ("47th", 1.0), ("43rd", 0.7), ("Indiana", 1.2), ("35th/Bronzeville/IIT", 1.0),
-    ("Cermak/McCormick Place", 1.2), ("Roosevelt", 1.2),
+                 // 🛤 Change Tracks at Ashland/63rd (Train turns back)
+                 ("Change Tracks", 0.0),
 
-    // 🚆 Continue Green Line return via Loop
-    ("Adams/Wabash", 0.6), ("Washington/Wabash", 0.4), ("State/Lake", 0.5),
-    ("Clark/Lake", 0.6), ("Clinton", 0.8), ("Morgan", 0.7), ("Ashland", 1.0),
-    ("Damen", 0.6), ("California", 0.7), ("Kedzie", 0.9), ("Conservatory-Central Park", 0.8),
-    ("Pulaski", 1.1), ("Cicero", 0.9), ("Laramie", 0.7), ("Central", 0.8),
-    ("Austin", 0.7), ("Ridgeland", 0.6), ("Oak Park", 0.7), ("Harlem/Lake", 0.8),
+                 ("Halsted", 1.0), ("Garfield", 1.0),
 
-    ("Change Tracks (Harlem/Lake)", 0.1) // ✅ Track switch before restarting route
-},
+                 // 🛤 Change Tracks at Garfield (Final merge point)
+                 ("Change Tracks", 0.0), 
+
+                 // Northbound (Returning to The Loop, then Harlem/Lake)
+                 ("51st", 1.0), ("47th", 1.0),
+                 ("43rd", 1.0), ("Indiana", 1.0),
+                 ("35th/Bronzeville/IIT", 1.0),
+                 ("Cermak-McCormick Place", 1.0),
+                 ("Roosevelt", 1.0), 
+
+                 // Enter The Loop (Counterclockwise)
+                 ("Adams/Wabash", 1.0),
+                 ("Washington/​Wabash", 1.0),
+                 ("State/Lake", 1.0),
+                 ("Clark/Lake", 1.0),
+                 ("Clinton", 1.0),
+                 ("Morgan", 1.0),
+                 ("Ashland", 1.0),
+                 ("Damen", 1.5),
+                 ("California", 1.0),
+                 ("Kedzie", 1.0),
+                 ("Conservatory/Central Park Drive", 1.0),
+                 ("Pulaski", 1.0),
+                 ("Cicero", 1.0),
+                 ("Laramie", 1.0),
+                 ("Central", 1.0),
+                 ("Austin", 1.0),
+                 ("Ridgeland", 1.0), ("Oak Park", 1.0),
+                 ("Harlem/Lake", 1.0)
+            },
 
             ["Pink"] = new List<(string Station, double Distance)>
+            {
+                // 🚆 Pink Line - 54th/Cermak to The Loop
+                ("54th/Cermak", 0.9), ("Cicero", 1.2), ("Kostner", 0.6), ("Pulaski", 1.1),
+                ("Central Park", 0.8), ("Kedzie", 0.9), ("California", 0.7), ("Western", 1.0),
+                ("Damen", 0.6), ("18th", 1.2), ("Polk", 0.9), ("Ashland", 1.0),
+                ("Clinton", 0.8), ("Clark/Lake", 0.6),
+            
+                // 🚆 Pink Line enters The Loop (Clockwise)
+                ("State/Lake", 0.5), ("Washington/Wabash", 0.4), ("Adams/Wabash", 0.6),
+                ("Harold Washington Library", 0.7), ("LaSalle/Van Buren", 0.5), ("Quincy", 0.6),
+                ("Washington/Wells", 0.7),
+            
+                // 🚆 Exiting The Loop - Return via original route
+                ("Clinton", 0.8), ("Morgan", 0.7), ("Ashland", 1.0), ("Polk", 0.9),
+                ("18th", 1.2), ("Damen", 0.6), ("Western", 1.0), ("California", 0.7),
+                ("Kedzie", 0.9), ("Central Park", 0.8), ("Pulaski", 1.1), ("Kostner", 0.6),
+                ("Cicero", 1.2), ("54th/Cermak", 0.9),
+
+                ("Change Tracks (54th/Cermak)", 0.1) // ✅ Track switch before restarting route
+            },
+
+            ["Orange"] = new List<(string Station, double Distance)>
+            {
+                ("Midway", 0.0),
+                ("Pulaski", 1.0),
+                ("Kedzie", 1.0),
+                ("Western", 1.0),
+                ("35th/Archer", 1.0),
+                ("Ashland", 1.0),
+                ("Halsted", 1.0),
+                ("Roosevelt", 1.0),
+                
+                // Enters The Loop (Clockwise)
+                ("Harold Washington Library", 1.0),
+                ("LaSalle/Van Buren", 1.0),
+                ("Quincy", 1.0),
+                ("Washington/Wells", 1.0),
+                ("Clark/Lake", 1.0),
+                ("State/Lake", 1.0),
+                ("Washington/Wabash", 1.0),
+                ("Adams/Wabash", 1.0),
+
+                
+                // 🛤 Change Tracks after completing The Loop
+                
+                
+                // Return trip back to Midway
+                ("Roosevelt", 1.0),
+                ("Halsted", 1.0),
+                ("Ashland", 1.0),
+                ("35th/Archer", 1.0),
+                ("Western", 1.0),
+                ("Kedzie", 1.0),
+                ("Pulaski", 1.0),
+                ("Midway", 1.0),
+                
+                // 🛤 Change Tracks at Midway (to begin next outbound loop)
+                ("Change Tracks", 0.0)
+            },
+
+
+            ["Brown"] = new List<(string Station, double Distance)>
 {
-    // 🚆 Pink Line - 54th/Cermak to The Loop
-    ("54th/Cermak", 0.9), ("Cicero", 1.2), ("Kostner", 0.6), ("Pulaski", 1.1),
-    ("Central Park", 0.8), ("Kedzie", 0.9), ("California", 0.7), ("Western", 1.0),
-    ("Damen", 0.6), ("18th", 1.2), ("Polk", 0.9), ("Ashland", 1.0),
-    ("Clinton", 0.8), ("Clark/Lake", 0.6),
+                ("Kimball", 0.0),
+                ("Kedzie", 1.0),
+                ("Francisco", 1.0),
+                ("Rockwell", 1.0),
+                ("Western", 1.0),
+                ("Damen", 1.0),
+                ("Montrose", 1.0),
+                ("Irving Park", 1.0),
+                ("Addison", 1.0),
+                ("Paulina", 1.0),
+                ("Southport", 1.0),
+                ("Belmont", 1.0),
+                ("Wellington", 1.0),
+                ("Diversey", 1.0),
+                ("Fullerton", 1.0),
+                ("Armitage", 1.0),
+                ("Sedgwick", 1.0),
+                ("Chicago", 1.0),
+                ("Merchandise Mart", 1.0),
 
-    // 🚆 Pink Line enters The Loop (Clockwise)
-    ("State/Lake", 0.5), ("Washington/Wabash", 0.4), ("Adams/Wabash", 0.6),
-    ("Harold Washington Library", 0.7), ("LaSalle/Van Buren", 0.5), ("Quincy", 0.6),
-    ("Washington/Wells", 0.7),
+                // Enters The Loop (Counterclockwise)
+                ("Washington/Wells", 1.0),
+                ("Quincy", 1.0),
+                ("LaSalle/Van Buren", 1.0),
+                ("Harold Washington Library", 1.0),
+                ("Adams/Wabash", 1.0),
+                ("Washington/Wabash", 1.0),
+                ("State/Lake", 1.0),
+                ("Clark/Lake", 1.0),
 
-    // 🚆 Exiting The Loop - Return via original route
-    ("Clinton", 0.8), ("Morgan", 0.7), ("Ashland", 1.0), ("Polk", 0.9),
-    ("18th", 1.2), ("Damen", 0.6), ("Western", 1.0), ("California", 0.7),
-    ("Kedzie", 0.9), ("Central Park", 0.8), ("Pulaski", 1.1), ("Kostner", 0.6),
-    ("Cicero", 1.2), ("54th/Cermak", 0.9),
+                                // Return trip northbound (reverse order)
+                ("Merchandise Mart", 1.0),
+                ("Chicago", 1.0),
+                ("Sedgwick", 1.0),
+                ("Armitage", 1.0),
+                ("Fullerton", 1.0),
+                ("Diversey", 1.0),
+                ("Wellington", 1.0),
+                ("Belmont", 1.0),
+                ("Southport", 1.0),
+                ("Paulina", 1.0),
+                ("Addison", 1.0),
+                ("Irving Park", 1.0),
+                ("Montrose", 1.0),
+                ("Damen", 1.0),
+                ("Western", 1.0),
+                ("Rockwell", 1.0),
+                ("Francisco", 1.0),
+                ("Kedzie", 1.0),
+                ("Kimball", 1.0),
+                // 🛤 Change Tracks at Kimball (to begin next Loop)
+                ("Change Tracks", 0.0)
+            },
 
-    ("Change Tracks (54th/Cermak)", 0.1) // ✅ Track switch before restarting route
-},
-
-
-
-
+            ["Purple"] = new List<(string Station, double Distance)>
+        {
+            ("Linden", 0.0),
+            ("Central", 1.0),
+            ("Noyes", 1.0),
+            ("Foster", 1.0),
+            ("Davis", 1.0),
+            ("Dempster", 1.0),
+            ("Main", 1.0),
+            ("South Boulevard", 1.0),
+            ("Howard", 1.0),
+        
+            // Express segment - shares Red Line track south of Howard
+            ("Wilson", 4.3),
+            ("Belmont", 1.0),
+            ("Wellington", 1.0),
+            ("Diversey", 1.0),
+            ("Fullerton", 1.0),
+            ("Armitage", 1.0),
+            ("Sedgwick", 1.0),
+            ("Chicago", 1.0),
+            ("Merchandise Mart", 1.0),
+        
+            // Enters The Loop (Clockwise, same as Brown)
+            ("Clark/Lake", 1.0),
+            ("State/Lake", 1.0),
+            ("Washington/Wabash", 1.0),
+            ("Adams/Wabash", 1.0),
+            ("Harold Washington Library", 1.0),
+            ("LaSalle/Van Buren", 1.0),
+            ("Quincy", 1.0),
+            ("Washington/Wells", 1.0),
+        
+            // Return trip northbound
+            ("Merchandise Mart", 1.0),
+            ("Chicago", 1.0),
+            ("Sedgwick", 1.0),
+            ("Armitage", 1.0),
+            ("Fullerton", 1.0),
+            ("Diversey", 1.0),
+            ("Wellington", 1.0),
+            ("Belmont", 1.0),
+            ("Wilson", 1.0),
+            ("Howard", 4.3),
+            ("South Boulevard", 1.0),
+            ("Main", 1.0),
+            ("Dempster", 1.0),
+            ("Davis", 1.0),
+            ("Foster", 1.0),
+            ("Noyes", 1.0),
+            ("Central", 1.0),
+            ("Linden", 1.0),        
+            // 🛤 Change Tracks at Linden
+            ("Change Tracks", 0.0)
+        },
         };
 
     }
 }
+

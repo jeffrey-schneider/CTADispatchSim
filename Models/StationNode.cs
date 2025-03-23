@@ -20,5 +20,22 @@ namespace CTADispatchSim.Models
             Next = null;
             Previous = null;
         }
+
+        public StationNode FindStation(string stationMame)
+        {
+            StationNode node = this;
+
+            //iterate through the curcular linked list 
+            do
+            {
+                if (node.StationName == stationMame)
+                    return node;
+
+                node = node.Next;
+
+            } while (node != null && node != this);
+            
+            return null;
+        }
     }
 }

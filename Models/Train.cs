@@ -1,5 +1,7 @@
 ﻿using CTADispatchSim.Models;
+using CTADispatchSim.Services;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Media;
 
 public class Train : INotifyPropertyChanged
@@ -34,12 +36,35 @@ public class Train : INotifyPropertyChanged
         // Assign colors
         RouteColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString(routeColor));
         RouteTextColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString(routeTextColor));
+        PrintGreenLineRoute();
     }
 
     public void MoveToNextStation()
     {
-        CurrentStation = CurrentStation.Next;
+        if (Route == "Green" && CurrentStation.StationName == "Garfield")
+        {
+            DispatchService dispatchService = new DispatchService();
+            dispatchService.MoveTrain(this);
+        }
+        else
+        {
+            CurrentStation = CurrentStation.Next;
+        }
+
         OnPropertyChanged(nameof(CurrentStation));
+    }
+
+    public void PrintGreenLineRoute()
+    {
+        StationNode node = RouteList.Head;
+        Debug.WriteLine( "Debug: Green Line Route:");
+        do
+        {
+            Debug.Write($"{node.StationName} → ");
+            node = node.Next;
+        } while (node != null && node != RouteList.Head);
+
+        Debug.WriteLine("END\n");
     }
 
     // 🔄 PropertyChanged for UI Updates
