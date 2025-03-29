@@ -55,7 +55,11 @@
                     </ItemsControl>
                 </Grid>
             </ScrollViewer>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="LineDisplayPanel" Orientation="Horizontal" Margin="10" />
+            </ScrollViewer>
 
         </StackPanel>
+        
     </Grid>
 </Window>

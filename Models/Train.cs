@@ -43,8 +43,9 @@ public class Train : INotifyPropertyChanged
     {
         if (Route == "Green" && CurrentStation.StationName == "Garfield")
         {
-            DispatchService dispatchService = new DispatchService();
-            dispatchService.MoveTrain(this);
+            //DispatchService dispatchService = new DispatchService();
+            //dispatchService.MoveTrain(this);
+            CurrentStation = CurrentStation.Next;
         }
         else
         {

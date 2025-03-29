@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\models\\ctastations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:models\\ctastations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\models\\train.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:models\\train.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\views\\trackblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:views\\trackblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\models\\stationnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\services\\dispatchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:services\\dispatchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|c:\\users\\jeffreyschneider\\documents\\personal\\games\\ctadispatchsim\\models\\train.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BC0E2FA-E624-4F8D-8248-B25F10E16237}|CTADispatchSim.csproj|solutionrelative:models\\train.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,50 +38,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwDwAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAUwD8AAAB/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T12:44:40.592Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Train.cs",
-              "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Models\\Train.cs",
-              "RelativeDocumentMoniker": "Models\\Train.cs",
-              "ToolTip": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Models\\Train.cs",
-              "RelativeToolTip": "Models\\Train.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAEIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T12:04:11.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CTAStations.cs",
               "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Models\\CTAStations.cs",
               "RelativeDocumentMoniker": "Models\\CTAStations.cs",
               "ToolTip": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Models\\CTAStations.cs",
               "RelativeToolTip": "Models\\CTAStations.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBUAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAQwGMAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T12:54:55.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T12:54:55.875Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-23T14:05:33.307Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "TrackBlock.cs",
+              "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Views\\TrackBlock.cs",
+              "RelativeDocumentMoniker": "Views\\TrackBlock.cs",
+              "ToolTip": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Views\\TrackBlock.cs",
+              "RelativeToolTip": "Views\\TrackBlock.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T14:06:53.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Train.cs",
+              "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Models\\Train.cs",
+              "RelativeDocumentMoniker": "Models\\Train.cs",
+              "ToolTip": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Models\\Train.cs",
+              "RelativeToolTip": "Models\\Train.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAvwDYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T12:04:11.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "DispatchService.cs",
               "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Services\\DispatchService.cs",
               "RelativeDocumentMoniker": "Services\\DispatchService.cs",
@@ -81,12 +110,11 @@
               "RelativeToolTip": "Services\\DispatchService.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T12:02:38.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T12:02:38.158Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "StationNode.cs",
               "DocumentMoniker": "C:\\Users\\JeffreySchneider\\Documents\\Personal\\Games\\CTADispatchSim\\Models\\StationNode.cs",
               "RelativeDocumentMoniker": "Models\\StationNode.cs",
@@ -94,8 +122,7 @@
               "RelativeToolTip": "Models\\StationNode.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAewCUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T12:07:48.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T12:07:48.171Z"
             }
           ]
         }

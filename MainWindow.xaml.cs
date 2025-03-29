@@ -35,6 +35,8 @@ namespace CTADispatchSim
             Debug.WriteLine("✅ MainWindow constructor started!");
 
             InitializeComponent();
+            BuildYellowLineGraph();
+
             DataContext = this;
 
             simulationTime = DateTime.Now;
@@ -52,13 +54,13 @@ namespace CTADispatchSim
 
         private void LoadTrains()
         {
-            //Trains.Add(new Train("Yellow Line Train 101", "Yellow", CTAStations.LineStations["Yellow"], "#FFD700", "#000000"));
-            //Trains.Add(new Train("Red Line Train 201", "Red", CTAStations.LineStations["Red"], "#FF0000", "#FFFFFF"));
-            //Trains.Add(new Train("Blue Line Train 301", "Blue", CTAStations.LineStations["Blue"], "#0000FF", "#FFFFFF"));
-            //Trains.Add(new Train("Green Line Train 901", "Green", CTAStations.LineStations["Green"], "#008000", "#FFFFFF"));
-            //Trains.Add(new Train("Pink Line Train 902", "Pink", CTAStations.LineStations["Pink"], "#FFC0CB", "#000000"));
-            //Trains.Add(new Train("Orange Line Train 903", "Orange", CTAStations.LineStations["Orange"], "#FFA500", "#000000"));
-            //Trains.Add(new Train("Brown Line Train 904", "Brown", CTAStations.LineStations["Brown"], "#8B4513", "#FFFFFF"));
+            Trains.Add(new Train("Yellow Line Train 101", "Yellow", CTAStations.LineStations["Yellow"], "#FFD700", "#000000"));
+            Trains.Add(new Train("Red Line Train 201", "Red", CTAStations.LineStations["Red"], "#FF0000", "#FFFFFF"));
+            Trains.Add(new Train("Blue Line Train 301", "Blue", CTAStations.LineStations["Blue"], "#0000FF", "#FFFFFF"));
+            Trains.Add(new Train("Green Line Train 901", "Green", CTAStations.LineStations["Green"], "#008000", "#FFFFFF"));
+            Trains.Add(new Train("Pink Line Train 902", "Pink", CTAStations.LineStations["Pink"], "#FFC0CB", "#000000"));
+            Trains.Add(new Train("Orange Line Train 903", "Orange", CTAStations.LineStations["Orange"], "#FFA500", "#000000"));
+            Trains.Add(new Train("Brown Line Train 904", "Brown", CTAStations.LineStations["Brown"], "#8B4513", "#FFFFFF"));
             Trains.Add(new Train("Purple Line Train 905", "Purple", CTAStations.LineStations["Purple"], "#800080", "#FFFFFF"));
 
             Debug.WriteLine("🚆 Trains loaded successfully!");
@@ -116,7 +118,28 @@ namespace CTADispatchSim
                 PauseButton.Content = "Pause";
             }
         }
-      
+
+        private Dictionary<string, TrackBlock> _trackBlocks = new();
+
+        private void BuildYellowLineGraph()
+        {
+            // Define the Yellow Line block segments
+            var segments = new List<string>
+    {
+        "Howard → Oakton/Skokie",
+        "Oakton/Skokie → Dempster/Skokie",
+        "Dempster/Skokie → Oakton/Skokie",
+        "Oakton/Skokie → Howard"
+    };
+
+            foreach (var seg in segments)
+            {
+                var block = new TrackBlock(seg);
+                _trackBlocks[seg] = block;
+                LineDisplayPanel.Children.Add(block);
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {

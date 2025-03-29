@@ -89,19 +89,15 @@ namespace CTADispatchSim.Models
                  ("Roosevelt", 1.0), ("Cermak-McCormick Place", 1.0),
                  ("35th/Bronzeville/IIT", 1.0),
                  ("Indiana", 1.0), ("43rd", 1.0),
-                 ("47th", 1.0), ("51st", 1.0), ("Garfield", 1.0),
-
-                 // Split Branch 2: Ashland/63rd
-                 ("Halsted", 1.0), ("Ashland/63rd", 1.0),
+                 ("47th", 1.0), ("51st", 1.0), 
+                 ("Garfield", 1.0), ("Halsted", 1.0), 
+                 ("Ashland/63rd", 1.0),
 
                  // 🛤 Change Tracks at Ashland/63rd (Train turns back)
-                 ("Change Tracks", 0.0),
-
-                 ("Halsted", 1.0), ("Garfield", 1.0),
-
-                 // 🛤 Change Tracks at Garfield (Final merge point)
-                 ("Change Tracks", 0.0), 
-
+                 ("Change Tracks (Ashland)", 0.1),
+                 ("Ashland/63rd", 1.0),
+                 ("Halsted", 1.0), 
+                 ("Garfield", 1.0),                 
                  // Northbound (Returning to The Loop, then Harlem/Lake)
                  ("51st", 1.0), ("47th", 1.0),
                  ("43rd", 1.0), ("Indiana", 1.0),
